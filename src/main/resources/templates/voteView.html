@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+
+<body class="container">
+<h3>Stemmerne samlet</h3>
+<div style="height: 300px;" >
+    <table class="table">
+        <thead style="background: burlywood;">
+        <tr>
+            <th>Parti</th>
+            <th>Stemmer</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="user-table-body">
+        </tbody>
+    </table>
+</div>
+<p id="add-error-msg" class="alert alert-danger" style="max-width: 50%;display: none;" role="alert"></p>
+</body>
+</html>
+
+<script>
+
+    //fetch votes
+    const URL = "http://localhost:8080/votes";
+    let votes = []
+
+    function fetchVotes() {
+        fetch(URL)
+            .then(res => res.json())
+            .then(data=> {
+                votes = data
+                makeRows()
+                console.log(data);
+            })
+    }
+
+    fetchVotes()
+
+    function makeRows() {
+        const rows = votes.map(v =>`
+        <tr>
+            <td>${v.partyName}</td>
+            <td>${v.votes}</td>
+        </tr>
+            `)
+        document.getElementById("user-table-body").innerHTML = rows.join("")
+    }
+    makeRows()
+</script>
