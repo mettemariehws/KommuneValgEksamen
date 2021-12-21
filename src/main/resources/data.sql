@@ -51,12 +51,12 @@ VALUES
 
 INSERT INTO votes(id,votes,party)
 VALUES
-    (1,1.037,'Socialdemokratiet'),
-    (2,368,'Det konservative Folkeparti'),
-    (3,239,'SF, Socialistisk Folkeparti'),
-    (4,153,'Dansk Folkeparti'),
-    (5,55,'Venstre, Danmarks Liberale Parti'),
-    (6,658,'Enhedslisten + De Rød Grønne');
+    (1,'41,3%','Socialdemokratiet'),
+    (2,'14,7%','Det konservative Folkeparti'),
+    (3,'9,5%','SF, Socialistisk Folkeparti'),
+    (4,'6,1%','Dansk Folkeparti'),
+    (5,'2,2%','Venstre, Danmarks Liberale Parti'),
+    (6,'26,2%','Enhedslisten + De Rød Grønne');
 
 
 

@@ -12,7 +12,7 @@ public class Vote {
     private int id;
 
     @Column(name = "votes")
-    private double votes;
+    private String votes;
 
     @Column(name = "party")
     private String partyName;
@@ -21,9 +21,9 @@ public class Vote {
 
     }
 
-    public Vote(int id, double procentages, String partyName) {
+    public Vote(int id, String votes, String partyName) {
         this.id = id;
-        this.votes = procentages;
+        this.votes = votes;
         this.partyName = partyName;
     }
 
@@ -35,11 +35,11 @@ public class Vote {
         this.id = id;
     }
 
-    public double getVotes() {
+    public String getVotes() {
         return votes;
     }
 
-    public void setVotes(double votes) {
+    public void setVotes(String votes) {
         this.votes = votes;
     }
 
